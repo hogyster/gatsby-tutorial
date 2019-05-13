@@ -9,7 +9,7 @@ export default function ({data }) {
 
     return (
     <Layout>
-        <h1>Singlr product template</h1>
+        <h1 style={{color: "red"}}>Singlr product template</h1>
         <Img fluid={fluid}/>
         <h1>{title}<span style={{marginLeft:"2rem", color:"grey"}}>{price}</span></h1>
         <p>{description}</p>
