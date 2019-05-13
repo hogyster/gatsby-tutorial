@@ -4,13 +4,26 @@
  *
  * See: https://www.gatsbyjs.org/docs/static-query/
  */
+/* eslint-disable import/first */
 
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
-
 import Header from "./header"
-import "./layout.css"
+import { createGlobalStyle } from 'styled-components'
+
+const GlobalStyle = createGlobalStyle`
+*{
+  margin:0;
+  padding:0; 
+}
+body{
+  background: ${props => (props.blueColor ? 'blue' : 'black')}
+}
+`
+
+// import "./layout.css"
+import './bootstrap.min.css'
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -25,6 +38,7 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
+      <GlobalStyle blueColor/>
         <Header siteTitle={data.site.siteMetadata.title} />
         <div
           style={{
